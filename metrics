@@ -1,0 +1,50 @@
+#!/usr/bin/env python
+
+import argparse
+import psutil
+
+def setup_args():
+    parser = argparse.ArgumentParser(
+            description = 'Metrics tool, GL DevOps ProCamp - entry task.'
+    )
+    parser.add_argument('res',
+            type = str,
+            choices = ["cpu", "mem"],
+            help = 'Type of resources to monitor'
+    )
+
+    args = parser.parse_args()
+    return args
+
+def print_cpu_metrics():
+    cpum = psutil.cpu_times()
+    print('system.cpu.idle ', cpum.idle)
+    print('system.cpu.user ', cpum.user)
+    print('system.cpu.guest ', cpum.guest)
+    print('system.cpu.iowait ', cpum.iowait)
+    print('system.cpu.stolen ', cpum.steal)
+    print('system.cpu.system ', cpum.system)
+
+def print_mem_metrics():
+    memm = psutil.virtual_memory()
+    swapm = psutil.swap_memory()
+    print('virtual total ', memm.total)
+    print('virtual used ', memm.used)
+    print('virtual free ', memm.free)
+    print('virtual shared ', memm.shared)
+    print('swap total ', swapm.total)
+    print('swap used', swapm.used)
+    print('swap free', swapm.free)
+
+def main():
+    args = setup_args()
+
+    if args.res == 'cpu':
+        print_cpu_metrics()
+    elif args.res == 'mem':
+        print_mem_metrics()
+
+
+if __name__ == '__main__':
+    main()
+
