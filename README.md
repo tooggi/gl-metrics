@@ -13,7 +13,7 @@ Create and run container using the image.  You can use `--rm` argument to remove
 ```
 $ docker run --rm gl-metrics
 ```
-If you run this container without any command and arguments you will get a usage message. In order to get a result and print system cpu or memory information you have to add the command `./metrics` and one required argument `cpu` or `mem`.
+If you run this container without any command and arguments you will get a help message without any result. In order to get a result and print system cpu or memory information you have to add the command `./metrics` and one required argument `cpu` or `mem`.
 ```
 $ docker run --rm gl-metrics ./metrics cpu
 $ docker run --rm gl-metrics ./metrics mem
