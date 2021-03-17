@@ -15,7 +15,7 @@ $ docker run --rm gl-metrics
 ```
 If you run this container without any command and arguments you will get a help message without any result. In order to get a result and print system cpu or memory information you have to add the command `./metrics` and one required argument `cpu` or `mem`.
 ```
-$ docker run --rm gl-metrics ./metrics cpu
-$ docker run --rm gl-metrics ./metrics mem
+$ docker run --rm gl-metrics metrics cpu
+$ docker run --rm gl-metrics metrics mem
 ```
 These commands will show you different parameters of cpu and memory usage on the system.
